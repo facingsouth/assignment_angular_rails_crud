@@ -34,6 +34,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Faker
 gem 'faker'
 
+# Bootstrap
+gem "twitter-bootstrap-rails"
+
 # Angular
 gem 'angularjs-rails'
 gem 'angular_rails_csrf'
@@ -49,5 +52,12 @@ group :development, :test do
   gem 'spring'
 
   gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
+
+  # test
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'rspec-rails'
+  gem 'guard-rspec', require: false
+  gem 'capybara'
+  gem 'launchy'
 end
 
