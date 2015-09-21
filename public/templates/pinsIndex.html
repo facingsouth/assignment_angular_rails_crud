@@ -1,4 +1,45 @@
-<p>Pins Index</p>
-<div>
-{{ pins }}
+<div class="panel panel-default">
+  <div class="panel-heading text-center">
+    <h1> Pins </h1>  
+  </div> 
+
+  <div class="panel-body">
+    <h3> Edit Pin </h3>  
+    <form class="form-group" ng-model="pinForm">
+      <label> Title
+        <input type="text" name="title" ng-model="pinForm.title" class="form-control"/>
+      </label><br>
+      <label> Buy/Sell?
+        <select name="buySell" ng-model="pinForm.buySell">
+          <option value="true">Buy</option>
+          <option value="false">Sell</option>
+        </select>
+      </label><br>
+      <label> Description
+        <input type="text" name="description" ng-model="pinForm.description" class="form-control"/>
+      </label><br>
+      <button ng-click="createNewPin()">Create New Pin</button>
+    </form>
+  </div>
+
+  <div class="panel-body">
+    <table class="table table-hover">
+      <thead>
+        <th>ID</th>
+        <th>Item Name</th>
+        <th>Buy/Sell</th>
+        <th>Description</th>
+        <th>User ID</th>
+      </thead>
+      <tbody>
+        <tr ng-repeat="pin in pins">
+          <td>{{pin.id}}</td>
+          <td>{{pin.item_name}}</td>
+          <td>{{pin.buy_sell}}</td>
+          <td>{{pin.description}}</td>
+          <td>{{pin.user_id}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

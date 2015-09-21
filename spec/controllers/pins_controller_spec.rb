@@ -42,4 +42,28 @@ RSpec.describe PinsController, type: :controller do
 
   end
 
+  describe 'POST /pins' do
+
+    before do
+      new_pin = { item_name: 'new_item', buy_sell: "true", description: "new_des", user_id: 1 }
+      post :create, pin: new_pin , format: :json
+    end
+
+    it 'should be able to create a new pin.' do
+      expect(json['item_name']).to eq('new_item')
+      expect(json['buy_sell']).to eq(true)
+      expect(json['description']).to eq("new_des")
+      expect(json['user_id']).to eq(1)
+    end
+
+  end
+
 end
+
+
+
+
+
+
+
+
