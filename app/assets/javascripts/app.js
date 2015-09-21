@@ -5,6 +5,6 @@ underscore.factory('_', ['$window', function($window) {
 
 var pbApp = angular.module("pbApp", ['ui.router', 'restangular', 'underscore'])
 
-pbApp.controller("test", ['$scope', function($scope) {
+pbApp.controller("testCtrl", ['$scope', function($scope) {
                       $scope.hw = "Dynamic now!";
                    }])
