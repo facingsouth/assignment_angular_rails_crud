@@ -20,3 +20,9 @@ pbApp.controller("pinsCtrl", ["$scope", "Restangular",
       );
     }
 }])
+
+
+pbApp.controller("pinShowCtrl", ["$scope", "Restangular", "$stateParams", 
+  function($scope, Restangular, $stateParams){
+    $scope.pin = Restangular.one("pins", $stateParams.id).get().$object;
+}])

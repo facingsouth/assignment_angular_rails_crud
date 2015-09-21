@@ -32,9 +32,9 @@
         <th>User ID</th>
       </thead>
       <tbody>
-        <tr ng-repeat="pin in pins">
+        <tr ng-repeat="pin in pins | orderBy: '-created_at'">
           <td>{{pin.id}}</td>
-          <td>{{pin.item_name}}</td>
+          <td><a ui-sref="pins.show({id: pin.id})">{{pin.item_name}}</a></td>
           <td>{{pin.buy_sell}}</td>
           <td>{{pin.description}}</td>
           <td>{{pin.user_id}}</td>

@@ -25,6 +25,11 @@ pbApp.config(["$stateProvider", "$urlRouterProvider",
         templateUrl: 'templates/pinsIndex.html',
         controller: 'pinsCtrl'
       })
+      .state('pins.show', {
+        url: '/pins/:id',
+        templateUrl: 'templates/pinShow.html',
+        controller: 'pinShowCtrl'
+      })
 }])
 
 pbApp.controller("testCtrl", ['$scope', function($scope) {
