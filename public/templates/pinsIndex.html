@@ -30,6 +30,7 @@
         <th>Buy/Sell</th>
         <th>Description</th>
         <th>User ID</th>
+        <th>Delete</th>
       </thead>
       <tbody>
         <tr ng-repeat="pin in pins | orderBy: '-created_at'">
@@ -38,6 +39,7 @@
           <td>{{pin.buy_sell}}</td>
           <td>{{pin.description}}</td>
           <td>{{pin.user_id}}</td>
+          <td ng-click="deletePin(pin.id, $index)">Delete</td>
         </tr>
       </tbody>
     </table>

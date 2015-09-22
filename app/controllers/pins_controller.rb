@@ -25,8 +25,25 @@ class PinsController < ApplicationController
     @pin = Pin.find(params[:id])
 
     respond_to do |format|
-      format.json { render json: @pin }
+      if @pin
+        format.json { render json: @pin }
+      else
+        format.json { render nothing: true, status: 404 }
+      end
     end
+  end
+
+  def update
+    @pin = Pin.find(params[:id])
+
+    respond_to do |format|
+      if @pin.update(pin_params)
+        format.json { render json: @pin, status: 200 }
+      else
+        format.json { render nothing: true, status: 400 }
+      end
+    end
+
   end
 
   private

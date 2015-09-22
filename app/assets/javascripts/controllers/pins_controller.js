@@ -19,10 +19,33 @@ pbApp.controller("pinsCtrl", ["$scope", "Restangular",
         }
       );
     }
+
+    $scope.deletePin = function(id, index) {
+      $scope.pin = Restangular.one("pins", id).get().$object;
+      $scope.pin.delete().then(function(){
+        $scope.pins.splice(index, 1);
+      })
+    }
 }])
 
 
 pbApp.controller("pinShowCtrl", ["$scope", "Restangular", "$stateParams", 
   function($scope, Restangular, $stateParams){
-    $scope.pin = Restangular.one("pins", $stateParams.id).get().$object;
+    $scope.pinForm = {};
+    Restangular.one("pins", $stateParams.id).get().then(function(pin){
+      $scope.pin = pin;
+      $scope.pinForm.title = pin.item_name; 
+      $scope.pinForm.buySell = pin.buy_sell ? "true" : "false";
+      $scope.pinForm.description = pin.description;
+    });
+
+    $scope.updatePin = function() {
+      $scope.pin.item_name = $scope.pinForm.title; 
+      $scope.pin.buy_sell = $scope.pinForm.buySell === "true";
+      $scope.pin.description = $scope.pinForm.description;
+      $scope.pin.put();
+    }
 }])
+
+
+
