@@ -74,6 +74,27 @@ RSpec.describe PinsController, type: :controller do
 
   end
 
+  describe 'DELETE /pins/:id' do
+
+    before do
+      delete :destroy, id: another_pin['id'], format: :json
+    end
+
+    it 'should be able to delete a pin.' do
+      expect(Pin.all.length).to eq(1)
+    end
+
+    it 'should return the deleted pin' do
+      expect(json['id']).to eq(another_pin['id'])
+      expect(json['item_name']).to eq(another_pin['item_name'])
+      expect(json['buy_sell']).to eq(another_pin['buy_sell'])
+      expect(json['description']).to eq(another_pin['description'])
+      expect(json['user_id']).to eq(another_pin['user_id'])
+    end
+
+  end
+
+
 end
 
 

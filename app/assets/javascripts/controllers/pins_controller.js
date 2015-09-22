@@ -20,11 +20,13 @@ pbApp.controller("pinsCtrl", ["$scope", "Restangular",
       );
     }
 
-    $scope.deletePin = function(id, index) {
-      $scope.pin = Restangular.one("pins", id).get().$object;
-      $scope.pin.delete().then(function(){
-        $scope.pins.splice(index, 1);
-      })
+    $scope.deletePin = function(id) {
+      Restangular.one("pins", id).get().then(function(pin){
+        pin.remove().then(function(){
+          var index = $scope.pins.indexOf(pin);
+          $scope.pins.splice(index, 1);
+        })
+      });
     }
 }])
 
