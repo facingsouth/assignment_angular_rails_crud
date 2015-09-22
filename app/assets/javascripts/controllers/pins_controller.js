@@ -16,6 +16,7 @@ pbApp.controller("pinsCtrl", ["$scope", "Restangular",
       .then(
         function(data){
           $scope.pins.push(data);
+          $scope.pinForm = {};
         }
       );
     }
