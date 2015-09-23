@@ -19,4 +19,5 @@
 //= require lodash.min.js
 //= require underscore-min.js
 //= require restangular.min.js
+//= require angular-devise/lib/devise
 //= require_tree .

@@ -3,7 +3,7 @@
 //   return $window._; // assumes underscore has already been loaded on the page
 // }]);
 
-var pbApp = angular.module("pbApp", ['ui.router', 'restangular'])
+var pbApp = angular.module("pbApp", ['ui.router', 'restangular', 'Devise'])
 
 
 pbApp.config(["RestangularProvider", function(RestangularProvider) {

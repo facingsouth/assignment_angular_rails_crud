@@ -10,9 +10,10 @@
 User.destroy_all
 Pin.destroy_all
 
-10.times do |i|
+3.times do |i|
   name = Faker::Name.name
-  user = User.create(username: name)
+  email = Faker::Internet.email
+  user = User.create(username: name, email: email, password: "11111111")
   5.times do |j|
     item_name = Faker::Commerce.product_name
     buy_sell = j < 3 ? true : false
