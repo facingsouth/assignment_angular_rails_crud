@@ -1,0 +1,31 @@
+sign up
+<div class="panel panel-default">
+  <div class="panel-heading text-center">
+    <h1> Sign Up </h1>  
+  </div> 
+
+  <div class="panel-body"> 
+    <form class="form-group" ng-model="pinForm">
+      <label> Username
+        <input type="text" name="username" ng-model="userForm.username" class="form-control"/>
+      </label><br>
+      <label> Email
+        <input type="text" name="email" ng-model="userForm.email" class="form-control"/>
+      </label><br>
+      <label> Password
+        <input type="password" name="password" ng-model="userForm.password" class="form-control"/>
+      </label><br>
+      <label> Password Confirmation
+        <input type="password" name="passwordConfirmation" ng-model="userForm.passwordConfirmation" class="form-control"/>
+      </label><br>
+      <button ng-click="signUp()">Sign Up!</button>
+    </form>
+  </div>
+</div>
+
+<button ng-click="signIn()">Sign In!</button>
+<button ng-click="signOut()">Sign Out!</button>
+
+{{userForm}}
+
+current user: {{currentUser}}

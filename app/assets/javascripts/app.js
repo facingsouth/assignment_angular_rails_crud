@@ -11,6 +11,13 @@ pbApp.config(["RestangularProvider", function(RestangularProvider) {
   RestangularProvider.setRequestSuffix(".json");
 }])
 
+pbApp.config(function(AuthProvider) {
+  AuthProvider.logoutPath('api/v1/users/sign_out.json');
+  AuthProvider.registerPath('api/v1/users.json');
+  // AuthProvider.registerMethod('POST');
+  // AuthProvider.resourceName('user');
+});
+
 pbApp.config(["$stateProvider", "$urlRouterProvider", 
   function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('');
@@ -29,6 +36,11 @@ pbApp.config(["$stateProvider", "$urlRouterProvider",
         url: '/pins/:id',
         templateUrl: 'templates/pinShow.html',
         controller: 'pinShowCtrl'
+      })
+      .state('sign-up', {
+        url: 'sign-up',
+        templateUrl: 'templates/registrations.html',
+        controller: 'usersCtrl'
       })
 }])
 
